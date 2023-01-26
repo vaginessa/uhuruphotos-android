@@ -23,7 +23,6 @@ object HeatMapCollageDisplay : CollageDisplay {
     override val compactColumnsLandscape = 3
     override val wideColumnsPortrait = 7
     override val wideColumnsLandscape = 3
-    override val shouldAddEmptyPhotosInRows = true
     override val iconResource: Int
         get() = throw IllegalStateException("This is not used")
     override val maintainAspectRatio = false

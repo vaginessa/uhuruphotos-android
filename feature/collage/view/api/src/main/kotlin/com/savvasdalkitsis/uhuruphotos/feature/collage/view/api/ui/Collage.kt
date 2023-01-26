@@ -17,9 +17,9 @@ package com.savvasdalkitsis.uhuruphotos.feature.collage.view.api.ui
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.LazyItemScope
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemScope
+import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridState
+import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -42,8 +42,8 @@ fun Collage(
     state: CollageState,
     showSelectionHeader: Boolean = false,
     showGroupRefreshButton: Boolean = false,
-    listState: LazyListState = rememberLazyListState(),
-    collageHeader: @Composable (LazyItemScope.() -> Unit)? = null,
+    gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState(),
+    collageHeader: @Composable (LazyStaggeredGridItemScope.() -> Unit)? = null,
     emptyContent: @Composable () -> Unit = { NoContent(string.no_photos) },
     onCelSelected: CelSelected = { _, _, _ -> },
     onChangeDisplay: ((CollageDisplay) -> Unit) = {},
@@ -72,17 +72,16 @@ fun Collage(
             showAlbumRefreshButton = showGroupRefreshButton,
             maintainAspectRatio = collageDisplay.maintainAspectRatio,
             miniIcons = collageDisplay.miniIcons,
-            listState = listState,
-            collageHeader = collageHeader,
             columnCount = collageDisplay.columnCount(
                 widthSizeClass = LocalWindowSize.current.widthSizeClass,
                 landscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
             ),
-            shouldAddEmptyPhotosInRows = collageDisplay.shouldAddEmptyPhotosInRows,
+            gridState = gridState,
+            collageHeader = collageHeader,
             onCelSelected = onCelSelected,
             onCelLongPressed = onCelLongPressed,
-            onClusterSelectionClicked = onClusterSelectionClicked,
             onClusterRefreshClicked = onClusterRefreshClicked,
+            onClusterSelectionClicked = onClusterSelectionClicked,
         )
     }
 }

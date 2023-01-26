@@ -16,7 +16,7 @@ limitations under the License.
 package com.savvasdalkitsis.uhuruphotos.feature.feed.view.implementation.ui
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -42,11 +42,11 @@ internal fun Feed(
     additionalContent: @Composable () -> Unit,
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val listState = rememberLazyListState()
+    val gridState = rememberLazyStaggeredGridState()
 
     fun scrollToTop() {
         coroutineScope.launch {
-            listState.animateScrollToItem(0, 0)
+            gridState.animateScrollToItem(0, 0)
         }
     }
 
@@ -75,7 +75,7 @@ internal fun Feed(
                 state = state.collageState,
                 showSelectionHeader = state.hasSelection,
                 showGroupRefreshButton = state.shouldShowClusterRefreshButtons,
-                listState = listState,
+                gridState = gridState,
                 onCelSelected = { cel, center, scale ->
                     action(SelectedCel(cel, center, scale,))
                 },

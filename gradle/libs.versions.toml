@@ -2,7 +2,7 @@
 accompanist = "0.28.0"
 androidx-hilt = "1.1.0-alpha01"
 coil = "2.2.2"
-compose = "1.4.0-alpha03"
+compose = "1.4.0-alpha05"
 exoplayer = "2.18.2"
 lumberjack = "5.3.0"
 mockk = "1.13.3"
@@ -23,6 +23,7 @@ accompanist-webview = { module = "com.google.accompanist:accompanist-webview", v
 androidx-activity = "androidx.activity:activity-compose:1.7.0-alpha02"
 androidx-compose-animation-base = { module = "androidx.compose.animation:animation", version.ref = "compose" }
 androidx-compose-animation-graphics = { module = "androidx.compose.animation:animation-graphics", version.ref = "compose" }
+androidx-compose-constraintlayout = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 androidx-compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "androidx-hilt" }
